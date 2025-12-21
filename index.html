@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Simple Sheet PRO</title> 
+    
     <link rel="icon" type="image/png" href="favicon-96x96.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
@@ -12,63 +13,53 @@
         .calculator-container { max-width: 1200px; margin: 0 auto; background-color: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
         h2 { text-align: center; color: #333; margin-bottom: 15px; font-size: 1.4em; }
         
-        /* 上部コントロール */
-        .top-controls { display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 15px; flex-wrap: wrap; gap: 8px; }
-        .master-name-group { flex: 1; display: flex; align-items: center; border: 1px solid #ced4da; border-radius: 5px; padding: 0 8px; background-color: #fff; min-width: 150px; height: 38px; }
-        .master-name-group label { font-size: 0.75em; font-weight: bold; color: #666; margin-right: 5px; white-space: nowrap; }
-        .master-name-input { flex-grow: 1; border: none; font-size: 0.9em; outline: none; width: 100%; }
+        .top-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 8px; }
+        .master-name-group { flex: 1; display: flex; align-items: center; border: 1px solid #ced4da; border-radius: 5px; padding: 0 8px; background-color: #f0f8ff; min-width: 150px; height: 38px; }
+        .master-name-group label { font-size: 0.8em; font-weight: bold; color: #007bff; margin-right: 5px; white-space: nowrap; }
+        .master-name-input { flex-grow: 1; border: none; font-size: 0.9em; outline: none; background: transparent; width: 100%; }
         
         .lang-switch { display: flex; gap: 2px; flex-wrap: wrap; }
-        .lang-button { background: #e9ecef; border: 1px solid #ced4da; padding: 5px; cursor: pointer; border-radius: 4px; font-size: 0.7em; min-width: 32px; height: 38px; box-sizing: border-box; }
+        .lang-button { background: #e9ecef; border: 1px solid #ced4da; padding: 4px; cursor: pointer; border-radius: 4px; font-size: 0.75em; min-width: 32px; height: 38px; box-sizing: border-box; }
         .lang-button.active { background-color: #007bff; color: white; border-color: #007bff; }
 
         .utility-bar { display: flex; justify-content: center; gap: 5px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; flex-wrap: wrap; }
-        .util-btn { border: none; background: #6c757d; color: white; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-size: 0.8em; font-weight: bold; }
+        .util-btn { border: none; background: #6c757d; color: white; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-size: 0.8em; font-weight: bold; display: flex; align-items: center; gap: 4px; }
 
-        .mode-toggle { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
-        .mode-button { padding: 8px 16px; border: 1px solid #ddd; background: #fff; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 0.9em; }
-        .mode-button.active { background-color: #007bff; color: white; border-color: #007bff; }
+        .mode-toggle { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+        .mode-button { padding: 8px 16px; border: none; background: #eee; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .mode-button.active { background-color: #007bff; color: white; }
 
-        /* 赤枠エリア：スマホ最適化（黒枠削除版） */
-        .master-row { padding: 12px; margin-bottom: 20px; border: 3px solid #dc3545; border-radius: 8px; background-color: #ffeaea; display: flex; align-items: center; box-sizing: border-box; }
-        .master-label-text { font-weight: bold; margin-right: 12px; white-space: nowrap; font-size: 0.9em; color: #dc3545; }
-        .master-input { flex-grow: 1; padding: 10px; border: 2px solid #dc3545; border-radius: 5px; font-size: 1.8em; text-align: right; box-sizing: border-box; width: 100%; font-weight: bold; color: #333; background: #fff; }
-
-        /* 計算行 */
-        .row { display: flex; align-items: center; margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; }
-        .text-label-input { flex: 2; padding: 10px; border: 1px solid #aaa; border-radius: 5px; margin-right: 8px; min-width: 80px; font-size: 1.0em; }
-        
-        .operator-group { display: flex; flex-direction: column; align-items: center; margin: 0 8px; min-width: 40px; }
-        .op-arrow { font-size: 1.4em; cursor: pointer; color: #007bff; user-select: none; padding: 2px; }
-        .operator-display { font-size: 1.8em; font-weight: bold; width: 35px; text-align: center; color: #333; line-height: 1; }
-        
-        .multiplier-input { width: 80px; padding: 10px; border: 2px solid #007bff; border-radius: 5px; text-align: right; font-size: 1.2em; font-weight: bold; }
-        
-        .btn-large { font-size: 1.3em; padding: 5px; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; background: #fff; display: flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; margin: 0 4px; }
-        .percent-toggle.active { background: #dc3545; color: #fff; border-color: #dc3545; }
-        
-        .result-group { display: flex; align-items: center; flex: 2; justify-content: flex-end; margin-left: 8px; border-left: 1px solid #ddd; padding-left: 10px; gap: 10px; }
-        .result-text { font-size: 1.8em; font-weight: bold; color: #007bff; }
-        .action-btn { background: none; border: 1px solid #eee; border-radius: 5px; cursor: pointer; font-size: 1.6em; padding: 6px; display: flex; align-items: center; justify-content: center; }
-
-        @media screen and (max-width: 768px), screen and (orientation: portrait) {
-            .master-row { flex-direction: column; align-items: stretch; }
-            .master-label-text { margin-bottom: 5px; }
-            .row { flex-wrap: wrap; }
-            .text-label-input { flex: 1 1 100%; margin-bottom: 8px; margin-right: 0; }
-            .result-group { flex: 1 1 100%; border-left: none; padding-left: 0; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; justify-content: space-between; }
-            .result-text { font-size: 2.2em; }
+        .master-row { 
+            padding: 10px 15px; margin-bottom: 20px; border: 3px solid #dc3545; border-radius: 8px; 
+            background-color: #ffeaea; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; 
         }
+        .master-label-text { font-weight: bold; font-size: 0.9em; color: #dc3545; white-space: nowrap; margin-right: 10px; }
+        .master-input { flex-grow: 1; max-width: 200px; padding: 8px; border: 2px solid #dc3545; border-radius: 5px; font-size: 1.4em; text-align: right; font-weight: bold; background: #fff; }
 
-        #saveMessage { position: fixed; bottom: 20px; right: 20px; background: #333; color: #fff; padding: 10px 20px; border-radius: 5px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1000; }
+        .row { display: flex; align-items: center; margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; flex-wrap: wrap; }
+        .text-label-input { flex: 2; padding: 10px; border: 1px solid #aaa; border-radius: 5px; margin-right: 8px; min-width: 120px; }
+        .operator-group { display: flex; flex-direction: column; align-items: center; margin: 0 8px; }
+        .operator-control { font-size: 0.7em; background: #6c757d; color: #fff; width: 18px; height: 18px; display: flex; justify-content: center; align-items: center; border-radius: 3px; cursor: pointer; }
+        .operator-display { font-size: 1.5em; font-weight: bold; width: 35px; text-align: center; }
+        .multiplier-input { width: 75px; padding: 10px; border: 2px solid #007bff; border-radius: 5px; text-align: right; font-size: 1.1em; font-weight: bold; }
+        .percent-toggle { border: 1px solid #ccc; border-radius: 5px; padding: 8px; cursor: pointer; font-weight: bold; color: #ccc; background: #fff; margin: 0 5px; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; box-sizing: border-box;}
+        .percent-toggle.active { background: #dc3545; color: #fff; border-color: #dc3545; }
+        .result-group { display: flex; align-items: center; flex: 2; justify-content: flex-end; margin-left: 8px; border-left: 1px solid #ddd; padding-left: 10px; gap: 8px; }
+        .result-text { font-size: 1.6em; font-weight: bold; color: #007bff; }
+        
+        @media screen and (max-width: 600px) {
+            .text-label-input { flex: 1 1 100%; margin-bottom: 8px; }
+            .result-group { flex: 1 1 100%; border-left: none; border-top: 1px solid #eee; padding-top: 10px; margin-top: 5px; }
+        }
+        #saveMessage { position: fixed; bottom: 20px; right: 20px; background: #333; color: #fff; padding: 10px 20px; border-radius: 5px; opacity: 0; transition: opacity 0.3s; z-index: 1000; pointer-events: none; }
     </style>
 </head>
 <body onload="init()">
     <div class="calculator-container">
         <div class="top-controls">
             <div class="master-name-group">
-                 <label id="lbl-name">Name:</label>
-                 <input type="text" id="masterLabel" class="master-name-input" oninput="saveSettings()">
+                <label id="masterLabelName">Name:</label>
+                <input type="text" id="masterLabel" class="master-name-input" oninput="saveSettings()">
             </div>
             <div class="lang-switch">
                 <button class="lang-button" id="lang-en" onclick="setLanguage('en')">EN</button>
@@ -84,10 +75,10 @@
         <h2 id="title">Simple Sheet PRO</h2>
 
         <div class="utility-bar">
-            <button class="util-btn" onclick="clearNumbers()">🧹 <span id="btn-clear">Clear</span></button>
-            <button class="util-btn" onclick="exportData()">📤 <span id="btn-export">Export</span></button>
-            <button class="util-btn" onclick="importData()">📥 <span id="btn-import">Import</span></button>
-            <button class="util-btn" style="background:#dc3545;" onclick="fullReset()">🔄 <span id="btn-reset">Reset</span></button>
+            <button class="util-btn" onclick="clearNumbers()">🧹 <span id="btnClear">Clear</span></button>
+            <button class="util-btn" onclick="exportData()">📤 <span id="btnExport">Export</span></button>
+            <button class="util-btn" onclick="importData()">📥 <span id="btnImport">Import</span></button>
+            <button class="util-btn" style="background:#dc3545;" onclick="fullReset()">🔄 <span id="btnReset">Reset All</span></button>
         </div>
 
         <div class="mode-toggle">
@@ -95,144 +86,252 @@
             <button id="customSimpleBtn" class="mode-button" onclick="switchMode('customSimple')">Custom</button>
         </div>
 
+        <div style="text-align: center; margin-bottom: 20px;">
+            <select id="presetSelector" onchange="loadPreset()" style="padding: 5px; border-radius: 4px; border: 1px solid #ced4da;"></select>
+            <button class="lang-button" id="savePresetBtn" onclick="savePreset()" style="width:auto; padding:0 10px;">Save</button>
+            <button class="lang-button" id="deletePresetBtn" onclick="deletePreset()" style="width:auto; padding:0 10px;">Delete</button>
+        </div>
+
         <div id="smart-sheet-mode">
             <div class="master-row">
-                <label id="lbl-base" class="master-label-text">Base Value</label>
+                <label id="masterLabelStart" class="master-label-text">Base Value</label>
                 <input type="number" id="masterInput" class="master-input" value="1000" oninput="updateDisplay()">
             </div>
             <div id="rows-container-smart"></div>
-            <div style="text-align: center; margin-top: 25px;">
-                <button class="mode-button" style="background:#28a745; color:#fff;" onclick="addRowSmart()">+ Add Row</button>
-                <button class="mode-button" style="background:#007bff; color:#fff;" onclick="copyPage('smart')">Copy All</button>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="mode-button" style="background:#28a745; color:white;" onclick="addRowSmart()">+ Add Row</button>
+                <button class="mode-button" style="background:#007bff; color:white;" onclick="copyPage('smart')">Copy All</button>
             </div>
         </div>
 
         <div id="custom-simple-mode" style="display: none;">
             <div class="master-row">
-                <label id="lbl-base-c" class="master-label-text">Base Value</label>
+                <label id="masterLabelStartSimple" class="master-label-text">Base Value</label>
                 <input type="number" id="masterInputSimple" class="master-input" value="1000" oninput="updateDisplay()">
             </div>
             <div id="rows-container-simple"></div>
-            <div style="text-align: center; margin-top: 25px;">
-                <button class="mode-button" style="background:#28a745; color:#fff;" onclick="addRowSimple()">+ Add Row</button>
-                <button class="mode-button" style="background:#007bff; color:#fff;" onclick="copyPage('custom')">Copy All</button>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="mode-button" style="background:#28a745; color:white;" onclick="addRowSimple()">+ Add Row</button>
+                <button class="mode-button" style="background:#007bff; color:white;" onclick="copyPage('custom')">Copy All</button>
+            </div>
+            <div style="margin-top: 25px; padding: 15px; border: 3px solid #28a745; border-radius: 8px; background:#e6ffed; text-align: center;">
+                <div id="finalTotalLabel" style="font-weight: bold;">Final Total</div>
+                <div id="finalResultTextCustom" style="font-size: 2.2em; font-weight: bold; color: #28a745;">0</div>
             </div>
         </div>
+
         <div id="saveMessage">Saved</div>
     </div>
 
     <script>
-        const translations = {
-            en: { title: 'Simple Sheet PRO', name: 'Name:', base: 'Base Value', clear: 'Clear', export: 'Export', import: 'Import', reset: 'Reset', copy: 'Copied' },
-            ja: { title: 'シンプルシート PRO', name: '計算名:', base: '元の数字', clear: 'クリア', export: '出力', import: '読込', reset: '初期化', copy: 'コピーしました' },
-            zh: { title: '简单计算 PRO', name: '名称:', base: '基础数值', clear: '清除', export: '导出', import: '导入', reset: '重置', copy: '已复制' },
-            ko: { title: '심플 시트 PRO', name: '이름:', base: '기준 숫자', clear: '삭제', export: '내보내기', import: '가져오기', reset: '초기화', copy: '복사됨' },
-            es: { title: 'Hoja Simple PRO', name: 'Nombre:', base: 'Valor Base', clear: 'Limpiar', export: 'Exportar', import: 'Importar', reset: 'Reiniciar', copy: 'Copiado' },
-            fr: { title: 'Feuille Simple PRO', name: 'Nom:', base: 'Valeur de Base', clear: 'Effacer', export: 'Exporter', import: 'Importer', reset: 'Réinitialiser', copy: 'Copié' },
-            pt: { title: 'Folha Simples PRO', name: 'Nome:', base: 'Valor Base', clear: 'Limpar', export: 'Exportar', import: 'Importar', reset: 'Redefinir', copy: 'Copiado' }
+        const languageMap = {
+            en: { title: "Simple Sheet PRO", masterLabelName: "Name:", masterLabelStart: "Base Value", savePreset: "Save", deletePreset: "Delete", finalTotal: "Final Total", copyMsg: "Copied!", btnClear: "Clear", btnExport: "Export", btnImport: "Import", btnReset: "Reset All", confirmReset: "Reset all data?", promptImport: "Paste Export data:" },
+            ja: { title: "シンプルシート PRO", masterLabelName: "計算名:", masterLabelStart: "元の数字", savePreset: "保存", deletePreset: "削除", finalTotal: "最終合計", copyMsg: "コピーしました", btnClear: "クリア", btnExport: "出力", btnImport: "読込", btnReset: "初期化", confirmReset: "全てのデータをリセットしますか？", promptImport: "出力されたデータを貼り付けてください:" },
+            zh: { title: "简单计算表 PRO", masterLabelName: "名称:", masterLabelStart: "初始值", savePreset: "保存", deletePreset: "删除", finalTotal: "最终合计", copyMsg: "已复制", btnClear: "清除", btnExport: "导出", btnImport: "导入", btnReset: "重置", confirmReset: "重置所有数据？", promptImport: "粘贴导出数据:" },
+            ko: { title: "심플 시트 PRO", masterLabelName: "이름:", masterLabelStart: "기준 숫자", savePreset: "저장", deletePreset: "삭제", finalTotal: "최종 합계", copyMsg: "복사됨", btnClear: "지우기", btnExport: "내보내기", btnImport: "가져오기", btnReset: "초기화", confirmReset: "모든 데이터를 초기화할까요?", promptImport: "내보낸 데이터를 붙여넣으세요:" },
+            es: { title: "Hoja Simple PRO", masterLabelName: "Nombre:", masterLabelStart: "Valor Base", savePreset: "Guardar", deletePreset: "Borrar", finalTotal: "Total Final", copyMsg: "¡Copiado!", btnClear: "Limpiar", btnExport: "Exportar", btnImport: "Importar", btnReset: "Reset", confirmReset: "¿Reiniciar todos los datos?", promptImport: "Pegue los datos exportados:" },
+            fr: { title: "Feuille Simple PRO", masterLabelName: "Nom:", masterLabelStart: "Valeur de base", savePreset: "Sauver", deletePreset: "Supprimer", finalTotal: "Total Final", copyMsg: "Copié !", btnClear: "Effacer", btnExport: "Exporter", btnImport: "Importer", btnReset: "Reset", confirmReset: "Réinitialiser toutes les données ?", promptImport: "Collez les données exportées :" },
+            pt: { title: "Folha Simples PRO", masterLabelName: "Nome:", masterLabelStart: "Valor Base", savePreset: "Salvar", deletePreset: "Excluir", finalTotal: "Total Final", copyMsg: "Copiado!", btnClear: "Limpar", btnExport: "Exportar", btnImport: "Importar", btnReset: "Reset", confirmReset: "Redefinir todos os dados?", promptImport: "Cole os dados exportados:" }
         };
 
-        let currentLang = 'en';
+        let currentLanguage = 'en';
+        let currentMode = 'smartSheet';
+        let rowCounterSmart = 0, rowCounterSimple = 0;
 
         function setLanguage(lang) {
-            currentLang = lang;
+            currentLanguage = lang;
             localStorage.setItem('userLang', lang);
-            const t = translations[lang];
+            const dict = languageMap[lang] || languageMap.en;
             document.querySelectorAll('.lang-button').forEach(b => b.classList.toggle('active', b.id === 'lang-'+lang));
-            document.getElementById('title').textContent = t.title;
-            document.getElementById('lbl-name').textContent = t.name;
-            document.getElementById('lbl-base').textContent = t.base;
-            document.getElementById('lbl-base-c').textContent = t.base;
-            document.getElementById('btn-clear').textContent = t.clear;
-            document.getElementById('btn-export').textContent = t.export;
-            document.getElementById('btn-import').textContent = t.import;
-            document.getElementById('btn-reset').textContent = t.reset;
+            document.getElementById('title').textContent = dict.title;
+            document.getElementById('masterLabelName').textContent = dict.masterLabelName;
+            document.getElementById('masterLabelStart').textContent = dict.masterLabelStart;
+            document.getElementById('masterLabelStartSimple').textContent = dict.masterLabelStart;
+            document.getElementById('savePresetBtn').textContent = dict.savePreset;
+            document.getElementById('deletePresetBtn').textContent = dict.deletePreset;
+            document.getElementById('finalTotalLabel').textContent = dict.finalTotal;
+            document.getElementById('btnClear').textContent = dict.btnClear;
+            document.getElementById('btnExport').textContent = dict.btnExport;
+            document.getElementById('btnImport').textContent = dict.btnImport;
+            document.getElementById('btnReset').textContent = dict.btnReset;
             updateDisplay();
         }
 
         function updateDisplay() {
-            const mv = parseFloat(document.getElementById('masterInput').value)||0;
+            const masterVal = parseFloat(document.getElementById('masterInput').value)||0;
             document.querySelectorAll('#rows-container-smart .row').forEach(r => {
-                const id=r.dataset.id, op=document.getElementById('smart-op-'+id).textContent, mult=parseFloat(r.querySelector('.multiplier-input').value)||0, pct=r.querySelector('.percent-toggle').classList.contains('active');
-                let res=0, mod=pct?mv*(mult/100):mult;
-                if(op==='+') res=mv+mod; else if(op==='-') res=mv-mod; else if(op==='×') res=pct?mv*(mult/100):mv*mult; else if(op==='÷') res=mult!==0?mv/mult:0;
+                const id = r.getAttribute('data-id'), op=document.getElementById('smart-op-'+id).textContent, mult=parseFloat(r.querySelector('.multiplier-input').value)||0, pct=r.querySelector('.percent-toggle').classList.contains('active');
+                let mod=pct?masterVal*(mult/100):mult, res=0;
+                if(op==='+') res=masterVal+mod; else if(op==='-') res=masterVal-mod; else if(op==='×') res=pct?masterVal*(mult/100):masterVal*mult; else if(op==='÷') res=mult!==0?masterVal/mult:0;
                 document.getElementById('smart-res-'+id).textContent = Math.round(res).toLocaleString();
             });
-            let chain = parseFloat(document.getElementById('masterInputSimple').value)||0;
+
+            const masterValSimple = parseFloat(document.getElementById('masterInputSimple').value)||0;
+            let chain = masterValSimple;
             document.querySelectorAll('#rows-container-simple .row').forEach(r => {
-                const id=r.dataset.id, op=document.getElementById('simple-op-'+id).textContent, mult=parseFloat(r.querySelector('.multiplier-input').value)||0, pct=r.querySelector('.percent-toggle').classList.contains('active');
+                const id = r.getAttribute('data-id'), op=document.getElementById('simple-op-'+id).textContent, mult=parseFloat(r.querySelector('.multiplier-input').value)||0, pct=r.querySelector('.percent-toggle').classList.contains('active');
                 const isChain = document.getElementById('simple-base-'+id).classList.contains('chain');
-                const base = isChain ? chain : parseFloat(document.getElementById('masterInputSimple').value)||0;
-                let mod=pct?base*(mult/100):mult, res=0;
-                if(op==='+') res=base+mod; else if(op==='-') res=base-mod; else if(op==='×') res=pct?base*(mult/100):base*mult; else if(op==='÷') res=mult!==0?base/mult:0;
+                const currentBase = isChain ? chain : masterValSimple;
+                let mod=pct?currentBase*(mult/100):mult, res=0;
+                if(op==='+') res=currentBase+mod; else if(op==='-') res=currentBase-mod; else if(op==='×') res=pct?currentBase*(mult/100):currentBase*mult; else if(op==='÷') res=mult!==0?currentBase/mult:0;
                 document.getElementById('simple-run-'+id).textContent = Math.round(res).toLocaleString(); chain=res;
             });
+            document.getElementById('finalResultTextCustom').textContent = Math.round(chain).toLocaleString();
             saveSettings();
         }
 
         function addRowSmart(s=null) {
-            const id = Date.now() + Math.random().toString(36).substr(2, 5);
+            rowCounterSmart++; const id = rowCounterSmart;
             const div = document.createElement('div'); div.className='row'; div.dataset.id=id;
             div.innerHTML = `<input type="text" class="text-label-input" value="${s?s.label:''}" oninput="saveSettings()">
-                <div class="operator-group"><div class="op-arrow" onclick="changeOp('${id}','smart',1)">▲</div><div class="operator-display" id="smart-op-${id}">${s?s.operator:'+'}</div><div class="op-arrow" onclick="changeOp('${id}','smart',-1)">▼</div></div>
+                <div class="operator-group"><div class="operator-control" onclick="changeOp('${id}','smart',1)">▲</div><div class="operator-display" id="smart-op-${id}">${s?s.operator:'+'}</div><div class="operator-control" onclick="changeOp('${id}','smart',-1)">▼</div></div>
                 <input type="number" class="multiplier-input" value="${s?s.multiplier:'0'}" oninput="updateDisplay()">
-                <div class="btn-large percent-toggle ${s&&s.isPercentActive?'active':''}" onclick="this.classList.toggle('active');updateDisplay()">%</div>
-                <div class="result-group"><div class="result-text" id="smart-res-${id}">0</div><button class="action-btn" onclick="copyText('smart-res-${id}')">📋</button><button class="action-btn" onclick="this.closest('.row').remove();updateDisplay()">🗑️</button></div>`;
+                <div class="percent-toggle ${s&&s.isPercentActive?'active':''}" onclick="this.classList.toggle('active');updateDisplay()">%</div>
+                <div class="result-group"><div class="result-text" id="smart-res-${id}">0</div><button style="border:none;background:none;cursor:pointer;font-size:1.4em;" onclick="copyIdText('smart-res-${id}')">📋</button><button style="border:none;background:none;cursor:pointer;font-size:1.4em;" onclick="this.closest('.row').remove();updateDisplay()">🗑️</button></div>`;
             document.getElementById('rows-container-smart').appendChild(div); updateDisplay();
         }
 
         function addRowSimple(s=null) {
-            const id = Date.now() + Math.random().toString(36).substr(2, 5);
+            rowCounterSimple++; const id = rowCounterSimple;
             const div = document.createElement('div'); div.className='row'; div.dataset.id=id;
             const isChain = s ? s.baseMode==='chain' : true;
             div.innerHTML = `<input type="text" class="text-label-input" value="${s?s.label:''}" oninput="saveSettings()">
-                <div id="simple-base-${id}" class="btn-large ${isChain?'chain':''}" style="border-radius:50%;" onclick="this.classList.toggle('chain');this.textContent=this.classList.contains('chain')?'🔗':'🏠';updateDisplay()">${isChain?'🔗':'🏠'}</div>
-                <div class="operator-group"><div class="op-arrow" onclick="changeOp('${id}','simple',1)">▲</div><div class="operator-display" id="simple-op-${id}">${s?s.operator:'+'}</div><div class="op-arrow" onclick="changeOp('${id}','simple',-1)">▼</div></div>
+                <div id="simple-base-${id}" class="percent-toggle ${isChain?'chain':''}" style="color:black;" onclick="this.classList.toggle('chain');this.textContent=this.classList.contains('chain')?'🔗':'🏠';updateDisplay()">${isChain?'🔗':'🏠'}</div>
+                <div class="operator-group"><div class="operator-control" onclick="changeOp('${id}','simple',1)">▲</div><div class="operator-display" id="simple-op-${id}">${s?s.operator:'+'}</div><div class="operator-control" onclick="changeOp('${id}','simple',-1)">▼</div></div>
                 <input type="number" class="multiplier-input" value="${s?s.multiplier:'0'}" oninput="updateDisplay()">
-                <div class="btn-large percent-toggle ${s&&s.isPercentActive?'active':''}" onclick="this.classList.toggle('active');updateDisplay()">%</div>
-                <div class="result-group"><div class="result-text" id="simple-run-${id}">0</div><button class="action-btn" onclick="copyText('simple-run-${id}')">📋</button><button class="action-btn" onclick="this.closest('.row').remove();updateDisplay()">🗑️</button></div>`;
+                <div class="percent-toggle ${s&&s.isPercentActive?'active':''}" onclick="this.classList.toggle('active');updateDisplay()">%</div>
+                <div class="result-group"><div class="result-text" id="simple-run-${id}">0</div><button style="border:none;background:none;cursor:pointer;font-size:1.4em;" onclick="copyIdText('simple-run-${id}')">📋</button><button style="border:none;background:none;cursor:pointer;font-size:1.4em;" onclick="this.closest('.row').remove();updateDisplay()">🗑️</button></div>`;
             document.getElementById('rows-container-simple').appendChild(div); updateDisplay();
         }
 
         function changeOp(id,m,d){ const ops=['+','-','×','÷']; const el=document.getElementById(m+'-op-'+id); el.textContent=ops[(ops.indexOf(el.textContent)+d+4)%4]; updateDisplay(); }
-        function switchMode(m){ document.getElementById('smart-sheet-mode').style.display=m==='smartSheet'?'block':'none'; document.getElementById('custom-simple-mode').style.display=m==='customSimple'?'block':'none'; document.getElementById('smartSheetBtn').classList.toggle('active',m==='smartSheet'); document.getElementById('customSimpleBtn').classList.toggle('active',m==='customSimple'); localStorage.setItem('mode',m); }
-        function copyText(id){ navigator.clipboard.writeText(document.getElementById(id).textContent); showMsg(translations[currentLang].copy); }
+        
+        function switchMode(m){ 
+            currentMode = m;
+            document.getElementById('smart-sheet-mode').style.display=m==='smartSheet'?'block':'none'; 
+            document.getElementById('custom-simple-mode').style.display=m==='customSimple'?'block':'none'; 
+            document.getElementById('smartSheetBtn').classList.toggle('active',m==='smartSheet'); 
+            document.getElementById('customSimpleBtn').classList.toggle('active',m==='customSimple'); 
+            localStorage.setItem('currentMode',m); 
+            refreshPresets(); // モードを切り替えたら、そのモード用のプリセット一覧に更新
+        }
+
+        function copyIdText(id){ navigator.clipboard.writeText(document.getElementById(id).textContent.replace(/,/g,'')); showMsg(languageMap[currentLanguage].copyMsg); }
         function copyPage(m){ 
             let t = `【${document.getElementById('masterLabel').value || 'Sheet'}】\n`;
             const container = m==='smart' ? '#rows-container-smart' : '#rows-container-simple';
-            document.querySelectorAll(container+' .row').forEach(r => {
-                const label = r.querySelector('.text-label-input').value || '-';
-                const res = r.querySelector('.result-text').textContent;
-                t += `${label}: ${res}\n`;
-            });
-            navigator.clipboard.writeText(t); showMsg(translations[currentLang].copy);
+            document.querySelectorAll(container+' .row').forEach(r => { t += `${r.querySelector('.text-label-input').value || '-'}: ${r.querySelector('.result-text').textContent}\n`; });
+            navigator.clipboard.writeText(t); showMsg(languageMap[currentLanguage].copyMsg);
         }
 
+        // 基本の自動保存（現在作業中の状態）
         function saveSettings(){
             const s = {
-                name: document.getElementById('masterLabel').value, mv: document.getElementById('masterInput').value, mvc: document.getElementById('masterInputSimple').value,
-                smart: Array.from(document.querySelectorAll('#rows-container-smart .row')).map(r=>({label:r.querySelector('.text-label-input').value, multiplier:r.querySelector('.multiplier-input').value, operator:document.getElementById('smart-op-'+r.dataset.id).textContent, isPercentActive:r.querySelector('.percent-toggle').classList.contains('active')})),
-                simple: Array.from(document.querySelectorAll('#rows-container-simple .row')).map(r=>({label:r.querySelector('.text-label-input').value, multiplier:r.querySelector('.multiplier-input').value, operator:document.getElementById('simple-op-'+r.dataset.id).textContent, isPercentActive:r.querySelector('.percent-toggle').classList.contains('active'), baseMode:document.getElementById('simple-base-'+r.dataset.id).classList.contains('chain')?'chain':'master'}))
+                masterLabel: document.getElementById('masterLabel').value, 
+                masterInput: document.getElementById('masterInput').value, 
+                masterInputSimple: document.getElementById('masterInputSimple').value,
+                smartRows: Array.from(document.querySelectorAll('#rows-container-smart .row')).map(r=>({label:r.querySelector('.text-label-input').value, multiplier:r.querySelector('.multiplier-input').value, operator:document.getElementById('smart-op-'+r.dataset.id).textContent, isPercentActive:r.querySelector('.percent-toggle').classList.contains('active')})),
+                simpleRows: Array.from(document.querySelectorAll('#rows-container-simple .row')).map(r=>({label:r.querySelector('.text-label-input').value, multiplier:r.querySelector('.multiplier-input').value, operator:document.getElementById('simple-op-'+r.dataset.id).textContent, isPercentActive:r.querySelector('.percent-toggle').classList.contains('active'), baseMode:document.getElementById('simple-base-'+r.dataset.id).classList.contains('chain')?'chain':'master'}))
             };
-            localStorage.setItem('settings', JSON.stringify(s));
+            localStorage.setItem('simpleSheetSettings', JSON.stringify(s));
+        }
+
+        // ★プリセット保存（モード別にスロットを分ける）
+        function savePreset(){ 
+            const name = document.getElementById('masterLabel').value; 
+            if(!name) return; 
+            
+            // モードに応じた専用の保存先キーを決める
+            const presetKey = currentMode === 'smartSheet' ? 'simpleSheetPresets_Smart' : 'simpleSheetPresets_Custom';
+            let p = JSON.parse(localStorage.getItem(presetKey) || '{}');
+            
+            // 現在の「すべての設定」をそのまま保存するのではなく、今のモードのデータだけを整理して保存
+            const currentData = JSON.parse(localStorage.getItem('simpleSheetSettings'));
+            p[name] = currentData;
+            
+            localStorage.setItem(presetKey, JSON.stringify(p)); 
+            refreshPresets(); 
+            showMsg("Saved (" + (currentMode==='smartSheet'?'Simple':'Custom') + ")"); 
+        }
+
+        function loadPreset(){ 
+            const name = document.getElementById('presetSelector').value; 
+            if(!name) return; 
+            
+            const presetKey = currentMode === 'smartSheet' ? 'simpleSheetPresets_Smart' : 'simpleSheetPresets_Custom';
+            const p = JSON.parse(localStorage.getItem(presetKey) || '{}');
+            
+            if(p[name]) {
+                localStorage.setItem('simpleSheetSettings', JSON.stringify(p[name])); 
+                location.reload(); 
+            }
+        }
+
+        function deletePreset(){ 
+            const name = document.getElementById('presetSelector').value; 
+            if(!name) return; 
+            const presetKey = currentMode === 'smartSheet' ? 'simpleSheetPresets_Smart' : 'simpleSheetPresets_Custom';
+            let p = JSON.parse(localStorage.getItem(presetKey) || '{}'); 
+            delete p[name]; 
+            localStorage.setItem(presetKey, JSON.stringify(p)); 
+            refreshPresets(); 
+        }
+
+        function refreshPresets(){ 
+            const sel = document.getElementById('presetSelector'); 
+            const presetKey = currentMode === 'smartSheet' ? 'simpleSheetPresets_Smart' : 'simpleSheetPresets_Custom';
+            const p = JSON.parse(localStorage.getItem(presetKey) || '{}'); 
+            
+            sel.innerHTML = `<option value="">-- Load ${currentMode==='smartSheet'?'Simple':'Custom'} --</option>`; 
+            Object.keys(p).forEach(k => { 
+                const o = document.createElement('option'); 
+                o.value = k; 
+                o.textContent = k; 
+                sel.appendChild(o); 
+            }); 
         }
 
         function init(){
-            const s = JSON.parse(localStorage.getItem('settings')||'{}');
-            document.getElementById('masterLabel').value = s.name||'';
-            document.getElementById('masterInput').value = s.mv||1000;
-            document.getElementById('masterInputSimple').value = s.mvc||1000;
-            if(s.smart && s.smart.length) s.smart.forEach(r=>addRowSmart(r)); else addRowSmart();
-            if(s.simple && s.simple.length) s.simple.forEach(r=>addRowSimple(r)); else addRowSimple();
-            setLanguage(localStorage.getItem('userLang')||'en');
-            switchMode(localStorage.getItem('mode')||'smartSheet');
+            const s = JSON.parse(localStorage.getItem('simpleSheetSettings')||'{}');
+            document.getElementById('masterLabel').value = s.masterLabel||'';
+            document.getElementById('masterInput').value = s.masterInput||1000;
+            document.getElementById('masterInputSimple').value = s.masterInputSimple||1000;
+            if(s.smartRows && s.smartRows.length) s.smartRows.forEach(r=>addRowSmart(r)); else addRowSmart();
+            if(s.simpleRows && s.simpleRows.length) s.simpleRows.forEach(r=>addRowSimple(r)); else addRowSimple();
+            
+            const savedLang = localStorage.getItem('userLang');
+            setLanguage(savedLang || (navigator.language.startsWith('ja') ? 'ja' : 'en'));
+            
+            switchMode(localStorage.getItem('currentMode')||'smartSheet');
         }
 
         function clearNumbers(){ document.getElementById('masterInput').value=0; document.getElementById('masterInputSimple').value=0; document.querySelectorAll('.multiplier-input').forEach(i=>i.value=0); updateDisplay(); }
-        function fullReset(){ if(confirm('Reset?')){ localStorage.clear(); location.reload(); } }
-        function exportData(){ navigator.clipboard.writeText(btoa(JSON.stringify(localStorage))); showMsg("Exported"); }
-        function importData(){ const p=prompt("Data:"); if(p){ try{const d=JSON.parse(atob(p)); Object.keys(d).forEach(k=>localStorage.setItem(k,d[k])); location.reload();}catch(e){alert("Error");} } }
-        function showMsg(t){ const m=document.getElementById('saveMessage'); m.textContent=t; m.style.opacity=1; setTimeout(()=>m.style.opacity=0,2000); }
+        function fullReset(){ if(confirm(languageMap[currentLanguage].confirmReset)){ localStorage.clear(); location.reload(); } }
+        
+        function exportData(){ 
+            const data = { 
+                settings: JSON.parse(localStorage.getItem('simpleSheetSettings')||'{}'), 
+                presetsSmart: JSON.parse(localStorage.getItem('simpleSheetPresets_Smart')||'{}'),
+                presetsCustom: JSON.parse(localStorage.getItem('simpleSheetPresets_Custom')||'{}')
+            }; 
+            navigator.clipboard.writeText(btoa(unescape(encodeURIComponent(JSON.stringify(data))))); 
+            showMsg(languageMap[currentLanguage].copyMsg); 
+        }
+        
+        function importData(){ 
+            const str = prompt(languageMap[currentLanguage].promptImport); 
+            if(!str) return; 
+            try { 
+                const data = JSON.parse(decodeURIComponent(escape(atob(str)))); 
+                if(data.settings) localStorage.setItem('simpleSheetSettings', JSON.stringify(data.settings)); 
+                if(data.presetsSmart) localStorage.setItem('simpleSheetPresets_Smart', JSON.stringify(data.presetsSmart)); 
+                if(data.presetsCustom) localStorage.setItem('simpleSheetPresets_Custom', JSON.stringify(data.presetsCustom)); 
+                location.reload(); 
+            } catch(e) { alert("Error"); } 
+        }
+        
+        function showMsg(t){ const m=document.getElementById('saveMessage'); m.textContent=t; m.style.opacity=1; setTimeout(()=>m.style.opacity=0, 2000); }
+        if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(err => console.log(err)); }); }
     </script>
 </body>
 </html>
