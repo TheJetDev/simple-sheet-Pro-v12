@@ -1,20 +1,24 @@
 {
-  "name": "Simple Sheet PRO",
-  "short_name": "SheetPRO",
-  "start_url": "index.html",
+  "name": "Simple Sheet Pro - Calc & Note",
+  "short_name": "SS Pro",
+  "description": "Professional minimalist calculator with integrated note-taking. Unlimited saves and structured calculations.",
+  "id": "/Simple-Sheet-Pro/",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f0f2f5",
-  "theme_color": "#007bff",
+  "background_color": "#ffffff",
+  "theme_color": "#4db8ff",
   "icons": [
     {
       "src": "web-app-manifest-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "web-app-manifest-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
